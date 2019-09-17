@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal" >
+
+    <TextView android:id="@+id/title" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:text="@string/title"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"
+        android:textSize="70sp" android:textColor="@color/colorAccent" />
+
+    <TableLayout
+        android:id="@+id/score_grid" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="5dp" >
+
+        <TableRow android:gravity="center_horizontal">
+            <TextView android:id="@+id/score_human_title" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/title_human"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+            <TextView android:id="@+id/score_human" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/score_human"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+
+            <TextView android:id="@+id/score_tie_title" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/title_tie"
+                android:gravity="center_horizontal" android:layout_marginTop="20dp"
+                android:textSize="20sp" android:layout_marginStart="10sp"
+                android:textColor="@color/colorBlack"/>
+            <TextView android:id="@+id/score_tie" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/score_tie"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+
+            <TextView android:id="@+id/score_computer_title" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/title_computer"
+                android:gravity="center_horizontal" android:layout_marginTop="20dp"
+                android:textSize="20sp" android:layout_marginStart="10sp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView android:id="@+id/score_computer" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/score_computer"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/play_grid"	android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="5dp" >
+
+        <TableRow android:gravity="center_horizontal">
+            <Button android:id="@+id/one" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N1"
+                android:textSize="70dp" />
+
+            <Button android:id="@+id/two" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N2"
+                android:textSize="70dp" />
+
+            <Button android:id="@+id/three" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N3"
+                android:textSize="70dp" />
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal">
+            <Button android:id="@+id/four" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N4"
+                android:textSize="70dp" />
+
+            <Button android:id="@+id/five" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N5"
+                android:textSize="70dp" />
+
+            <Button android:id="@+id/six" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N6"
+                android:textSize="70dp" />
+        </TableRow>
+        <TableRow android:gravity="center_horizontal">
+            <Button android:id="@+id/seven" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N7"
+                android:textSize="70dp" />
+
+            <Button android:id="@+id/eight" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N8"
+                android:textSize="70dp" />
+
+            <Button android:id="@+id/nine" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/N9"
+                android:textSize="70dp" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView android:id="@+id/information" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:text="@string/info"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"
+        android:textSize="20sp" />
+
+    <Button android:id="@+id/new_game" android:layout_width="300dp"
+        android:layout_height="100dp" android:text="@string/new_game"
+        android:textSize="50dp" />
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="N1">1</string>
+    <string name="N2">2</string>
+    <string name="N3">3</string>
+    <string name="N4">4</string>
+    <string name="N5">5</string>
+    <string name="N6">6</string>
+    <string name="N7">7</string>
+    <string name="N8">8</string>
+    <string name="N9">9</string>
+
+    <string name="info">info</string>
+    <string name="title">TicTacToe</string>
+    <string name="title_human">Human: </string>
+    <string name="title_tie">Tie: </string>
+    <string name="title_computer">Computer: </string>
+
+    <string name="score_human">0</string>
+    <string name="score_tie">0</string>
+    <string name="score_computer">0</string>
+
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_harder">Harder</string>
+    <string name="difficulty_expert">Expert</string>
+    <string name="difficulty_choose">Choose a difficult level:</string>
+
+    <string name="quit_question">Are you sure you want to quit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="about">About</string>
+    <string name="author">Tic-Tac-Toe\nBy Stephanie T</string>
+    <string name="about_message">Choose from one of three difficulty levels.\nDon\'t let the Android beat you!</string>
+
+    <string name="new_game">New Game</string>
+</resources>

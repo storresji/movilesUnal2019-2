@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal" >
+
+    <!--<ToggleButton
+        android:id="@+id/toggBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textOff="Sound off"
+        android:textOn="Sound on"
+        android:layout_gravity="right"
+        android:onClick="soundToggle"/>-->
+
+    <TextView android:id="@+id/title" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:text="@string/title"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"
+        android:textSize="70sp" android:textColor="@color/colorAccent" />
+
+    <TableLayout
+        android:id="@+id/score_grid" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="5dp" >
+
+        <TableRow android:gravity="center_horizontal">
+            <TextView android:id="@+id/score_human_title" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/title_human"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+            <TextView android:id="@+id/score_human" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/score_human"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+
+            <TextView android:id="@+id/score_tie_title" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/title_tie"
+                android:gravity="center_horizontal" android:layout_marginTop="20dp"
+                android:textSize="20sp" android:layout_marginStart="10sp"
+                android:textColor="@color/colorBlack"/>
+            <TextView android:id="@+id/score_tie" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/score_tie"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+
+            <TextView android:id="@+id/score_computer_title" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/title_computer"
+                android:gravity="center_horizontal" android:layout_marginTop="20dp"
+                android:textSize="20sp" android:layout_marginStart="10sp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView android:id="@+id/score_computer" android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:text="@string/score_computer"
+                android:gravity="center_horizontal" android:layout_marginTop="20sp"
+                android:textSize="20sp" android:textColor="@color/colorBlack"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <co.edu.unal.tictactoe.BoardView
+        android:id="@+id/board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView android:id="@+id/information" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:text="@string/info"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"
+        android:textSize="20sp" />
+
+</LinearLayout>

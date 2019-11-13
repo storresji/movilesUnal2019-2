@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal" >
+
+    <TextView android:id="@+id/title" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:text="@string/titulo"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"
+        android:textSize="40sp" android:textColor="@color/colorAccent" />
+
+    <TextView android:id="@+id/section" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:text="@string/mensaje_seleccion"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"
+        android:textSize="30sp" android:textColor="@color/colorPrimaryDark"
+        />
+
+    <Button
+        android:id="@+id/button_agregar_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregar_empresa"/>
+
+    <Button
+        android:id="@+id/button_editar_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/actualizar_empresa"/>
+
+    <Button
+        android:id="@+id/button_eliminar_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminar_empresa"/>
+
+    <Button
+        android:id="@+id/button_ver_empresas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ver_empresas"/>
+
+</LinearLayout>

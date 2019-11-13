@@ -17,6 +17,8 @@ public class EmpresaDBHandler extends SQLiteOpenHelper {
     public static final String COLUMNA_URL_PAGINA = "ulrPaginaWeb";
     public static final String COLUMNA_TELEFONO = "telefono";
     public static final String COLUMNA_CORREO = "correo";
+    public static final String COLUMNA_PRODUCTOS = "productos";
+    public static final String COLUMNA_SERVICIOS = "servicios";
     public static final String COLUMNA_CLASIFICACION = "clasificacion";
 
     private static final String TABLE_CREATE =
@@ -26,6 +28,8 @@ public class EmpresaDBHandler extends SQLiteOpenHelper {
                     COLUMNA_URL_PAGINA + " TEXT, " +
                     COLUMNA_TELEFONO + " TEXT, " +
                     COLUMNA_CORREO + " TEXT, " +
+                    COLUMNA_PRODUCTOS + " TEXT, " +
+                    COLUMNA_SERVICIOS + " TEXT, " +
                     COLUMNA_CLASIFICACION + " NUMERIC " +
                     ")";
 

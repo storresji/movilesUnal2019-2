@@ -18,6 +18,7 @@ import co.edu.unal.directorio.models.Empresa;
 import co.edu.unal.directorio.util.AgregarActualizarEmpresaActivity;
 import co.edu.unal.directorio.util.EmpresaOperations;
 import co.edu.unal.directorio.util.VerEmpresasActivity;
+import co.edu.unal.directorio.util.VerEmpresasFiltro;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         verEmpresasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, VerEmpresasActivity.class);
+                Intent i = new Intent(MainActivity.this, VerEmpresasFiltro.class);
                 startActivity(i);
             }
         });
@@ -111,7 +112,11 @@ public class MainActivity extends AppCompatActivity {
         // set dialog message
         alertDialogBuilder
                 .setCancelable(false)
-                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                .setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .setPositiveButton("Aceptar",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         // get user input and set it to result
                         // edit text
@@ -138,20 +143,44 @@ public class MainActivity extends AppCompatActivity {
 
         // set dialog message
         alertDialogBuilder
-                .setCancelable(false)
-                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                .setCancelable(true)
+                .setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
+                        final AlertDialog alertDialogConfirmation = new AlertDialog.Builder(MainActivity.this)
+                                .setMessage("¿Está seguro de eliminar el registro?")
+                                .setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .setPositiveButton("Aceptar", new AlertDialog.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Empresa empresa = empresaOperations.getEmpresa(Long.parseLong(userInput.getText().toString()));
+
+                                        if(empresa != null) {
+                                            empresaOperations.eliminarEmpresa(empresa);
+                                            Toast t = Toast.makeText(MainActivity.this, "Empresa eliminada exitosamente: " + empresa.getEmpId(), Toast.LENGTH_SHORT);
+                                            t.show();
+                                        }else{
+                                            Toast t = Toast.makeText(MainActivity.this, "La empresa con id = " + userInput.getText().toString() + " no existe", Toast.LENGTH_SHORT);
+                                            t.show();
+
+                                        }
+                                    }
+                                })
+                                .create();
+                        alertDialogConfirmation.show();
                         // get user input and set it to result
                         // edit text
-                        //empresaOperations = new EmpresaOperations(MainActivity.this);
-                        Empresa empresa = empresaOperations.getEmpresa(Long.parseLong(userInput.getText().toString()));
-                        empresaOperations.eliminarEmpresa(empresa);
-                        Toast t = Toast.makeText(MainActivity.this,"Empresa eliminada exitosamente: " + empresa.getEmpId(),Toast.LENGTH_SHORT);
-                        t.show();
-                    }
-                }).create()
-                .show();
 
+                    }
+
+
+                }).create();
+                alertDialogBuilder.show();
     }
 
     @Override
@@ -165,4 +194,53 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         empresaOperations.close();
     }
-}
+
+    private class PopupConfimation implements DialogInterface.OnClickListener {
+
+        private MainActivity activity;
+        private View empIdView;
+        private String inputId;
+
+        private PopupConfimation(MainActivity mainActivity, View empIdView, String inputId) {
+
+            activity = mainActivity;
+            this.empIdView = empIdView;
+            this.inputId = inputId;
+        }
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+
+                final AlertDialog.Builder alertDialogConfirmation = new AlertDialog.Builder(activity);
+                // set dialog_get_emp_id.xml to alertdialog builder
+                alertDialogConfirmation.setView(empIdView);
+
+                alertDialogConfirmation
+                        .setCancelable(true)
+                        .setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setPositiveButton("Aceptar",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+                                // edit text
+                                //empresaOperations = new EmpresaOperations(MainActivity.this);
+                                Empresa empresa = empresaOperations.getEmpresa(Long.parseLong(inputId));
+                                if(empresa != null) {
+                                    empresaOperations.eliminarEmpresa(empresa);
+                                    Toast t = Toast.makeText(MainActivity.this, "Empresa eliminada exitosamente: " + empresa.getEmpId(), Toast.LENGTH_SHORT);
+                                    t.show();
+                                }else{
+                                    Toast t = Toast.makeText(MainActivity.this, "La empresa con id = " + inputId + " no existe", Toast.LENGTH_SHORT);
+                                    t.show();
+
+                                }
+
+                            }
+                        }).create();
+                        alertDialogConfirmation.show();
+            }
+        }
+    }
+

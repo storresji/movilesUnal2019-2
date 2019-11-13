@@ -26,6 +26,8 @@ public class EmpresaOperations {
             EmpresaDBHandler.COLUMNA_URL_PAGINA,
             EmpresaDBHandler.COLUMNA_TELEFONO,
             EmpresaDBHandler.COLUMNA_CORREO,
+            EmpresaDBHandler.COLUMNA_PRODUCTOS,
+            EmpresaDBHandler.COLUMNA_SERVICIOS,
             EmpresaDBHandler.COLUMNA_CLASIFICACION,
     };
 
@@ -52,9 +54,10 @@ public class EmpresaOperations {
         values.put(EmpresaDBHandler.COLUMNA_URL_PAGINA, empresa.getUrlPaginaWeb());
         values.put(EmpresaDBHandler.COLUMNA_TELEFONO, empresa.getTelefono());
         values.put(EmpresaDBHandler.COLUMNA_CORREO, empresa.getCorreo());
+        values.put(EmpresaDBHandler.COLUMNA_PRODUCTOS, empresa.getProductos());
+        values.put(EmpresaDBHandler.COLUMNA_SERVICIOS, empresa.getServicios());
         values.put(EmpresaDBHandler.COLUMNA_CLASIFICACION, empresa.getClasificacion().getId());
 
-        System.out.println("Empresa a guardar: " + empresa);
         long insertid = database.insert(EmpresaDBHandler.TABLA_EMPRESAS,null,values);
         empresa.setEmpId(insertid);
         return empresa;
@@ -67,24 +70,18 @@ public class EmpresaOperations {
         Cursor cursor = database.query(EmpresaDBHandler.TABLA_EMPRESAS, allColumns,EmpresaDBHandler.COLUMN_ID + "=?",new String[]{String.valueOf(id)},null,null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
-        if(cursor == null)
-            System.out.println("CURSOR NULO!!!!!");
-        else {
-
-            System.out.println("CURSOR NO    NULO!!!!! "  + cursor.getCount());
-        }
-        Clasificacion clasificacion = Clasificacion.getById(cursor.getInt(5));
-        System.out.println("Clasificacion: " + clasificacion.getId());
-        System.out.println("Id GetEmpresa: " + id + " " + Long.parseLong(cursor.getString(0)) + " " + cursor.getString(1) + " " + cursor.getInt(5));
-        Empresa empresa = new Empresa(
+        Empresa empresa = null;
+        if(cursor.getCount() > 0)
+            empresa = new Empresa(
                 Long.parseLong(cursor.getString(0)),
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getString(4),
-                Clasificacion.getById(cursor.getInt(5)));
+                cursor.getString(5),
+                cursor.getString(6),
+                Clasificacion.getById(cursor.getInt(7)));
 
-        System.out.println("EMPRESA CREADA: " + empresa);
         return empresa;
         }
 
@@ -102,6 +99,8 @@ public class EmpresaOperations {
                 empresa.setUrlPaginaWeb(cursor.getString(cursor.getColumnIndex(EmpresaDBHandler.COLUMNA_URL_PAGINA)));
                 empresa.setTelefono(cursor.getString(cursor.getColumnIndex(EmpresaDBHandler.COLUMNA_TELEFONO)));
                 empresa.setCorreo(cursor.getString(cursor.getColumnIndex(EmpresaDBHandler.COLUMNA_CORREO)));
+                empresa.setProductos(cursor.getString(cursor.getColumnIndex(EmpresaDBHandler.COLUMNA_PRODUCTOS)));
+                empresa.setServicios(cursor.getString(cursor.getColumnIndex(EmpresaDBHandler.COLUMNA_SERVICIOS)));
                 empresa.setClasificacion(Clasificacion.getById(cursor.getInt(cursor.getColumnIndex(EmpresaDBHandler.COLUMNA_CLASIFICACION))));
                 empresas.add(empresa);
             }
@@ -118,6 +117,8 @@ public class EmpresaOperations {
         values.put(EmpresaDBHandler.COLUMNA_URL_PAGINA, empresa.getUrlPaginaWeb());
         values.put(EmpresaDBHandler.COLUMNA_TELEFONO, empresa.getTelefono());
         values.put(EmpresaDBHandler.COLUMNA_CORREO, empresa.getCorreo());
+        values.put(EmpresaDBHandler.COLUMNA_PRODUCTOS, empresa.getProductos());
+        values.put(EmpresaDBHandler.COLUMNA_SERVICIOS, empresa.getServicios());
         values.put(EmpresaDBHandler.COLUMNA_CLASIFICACION, empresa.getClasificacion().getId());
 
         // updating row
@@ -127,7 +128,6 @@ public class EmpresaOperations {
 
     // Deleting Employee
     public void eliminarEmpresa(Empresa empresa) {
-        System.out.println("Empresa a eliminar: " + empresa);
         database.delete(EmpresaDBHandler.TABLA_EMPRESAS, EmpresaDBHandler.COLUMN_ID + "=" + empresa.getEmpId(), null);
     }
 }

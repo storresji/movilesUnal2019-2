@@ -30,6 +30,8 @@ public class AgregarActualizarEmpresaActivity extends AppCompatActivity {
     private EditText urlEditText;
     private EditText telefonoEditText;
     private EditText correoEditText;
+    private EditText productosEditText;
+    private EditText serviciosEditText;
     private Button addUpdateButton;
     private Empresa newEmpresa;
     private Empresa oldEmpresa;
@@ -48,6 +50,9 @@ public class AgregarActualizarEmpresaActivity extends AppCompatActivity {
         urlEditText = (EditText)findViewById(R.id.editar_url);
         telefonoEditText = (EditText) findViewById(R.id.editar_telefono);
         correoEditText = (EditText) findViewById(R.id.editar_correo);
+        productosEditText = (EditText) findViewById(R.id.editar_productos);
+        serviciosEditText = (EditText) findViewById(R.id.editar_servicios);
+
         radioGroup = (RadioGroup) findViewById(R.id.radio_clasificacion);
         consultoriaRadioButton = (RadioButton) findViewById(R.id.radio_consultoria);
         sofwareRadioButton = (RadioButton) findViewById(R.id.radio_desarrollo);
@@ -104,6 +109,8 @@ public class AgregarActualizarEmpresaActivity extends AppCompatActivity {
                     newEmpresa.setUrlPaginaWeb(urlEditText.getText().toString());
                     newEmpresa.setTelefono(telefonoEditText.getText().toString());
                     newEmpresa.setCorreo(correoEditText.getText().toString());
+                    newEmpresa.setProductos(productosEditText.getText().toString());
+                    newEmpresa.setServicios(serviciosEditText.getText().toString());
 
                     empresaData.addEmpresa(newEmpresa);
                     Toast t = Toast.makeText(AgregarActualizarEmpresaActivity.this, "Empresa "+ newEmpresa.getNombre() + " ha sido agregada exitosamente!", Toast.LENGTH_SHORT);
@@ -115,6 +122,8 @@ public class AgregarActualizarEmpresaActivity extends AppCompatActivity {
                     oldEmpresa.setUrlPaginaWeb(urlEditText.getText().toString());
                     oldEmpresa.setTelefono(telefonoEditText.getText().toString());
                     oldEmpresa.setCorreo(correoEditText.getText().toString());
+                    oldEmpresa.setProductos(productosEditText.getText().toString());
+                    oldEmpresa.setServicios(serviciosEditText.getText().toString());
 
                     empresaData.updateEmpresa(oldEmpresa);
                     Toast t = Toast.makeText(AgregarActualizarEmpresaActivity.this, "Empresa "+ oldEmpresa.getNombre() + " ha sido actualizada existosamente!", Toast.LENGTH_SHORT);
@@ -128,14 +137,16 @@ public class AgregarActualizarEmpresaActivity extends AppCompatActivity {
 
     private void inicializarEmpresa(long empId) {
 
-        System.out.println("EmpId inicializar: " + empId);
         oldEmpresa = empresaData.getEmpresa(empId);
+
+        if(oldEmpresa != null) {
+
         nombreEditText.setText(oldEmpresa.getNombre());
         urlEditText.setText(oldEmpresa.getUrlPaginaWeb());
         telefonoEditText.setText(oldEmpresa.getTelefono());
         correoEditText.setText(oldEmpresa.getCorreo());
-
-        System.out.println("OLD EMPRESA: "+ oldEmpresa);
+        productosEditText.setText(oldEmpresa.getProductos());
+        serviciosEditText.setText(oldEmpresa.getServicios());
 
         if(oldEmpresa.getClasificacion().equals(Clasificacion.CONSULTORIA))
             radioGroup.check(R.id.radio_consultoria);
@@ -144,6 +155,11 @@ public class AgregarActualizarEmpresaActivity extends AppCompatActivity {
         else if(oldEmpresa.getClasificacion().equals(Clasificacion.FABRICA_SOFTWARE))
             radioGroup.check(R.id.radio_fabrica);
 
+        }else{
+            Toast t = Toast.makeText(this, "La empresa con id = " + empId + " no existe", Toast.LENGTH_SHORT);
+            t.show();
+
+        }
     }
 
 }

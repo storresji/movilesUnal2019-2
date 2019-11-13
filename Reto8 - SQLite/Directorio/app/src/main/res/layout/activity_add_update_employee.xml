@@ -3,32 +3,94 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/text_view_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/datos_nombre"
+        android:textSize="15sp" />
     <EditText
         android:id="@+id/editar_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/datos_nombre"
         android:textSize="15dp"/>
 
+    <TextView
+        android:id="@+id/text_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/datos_url"
+        android:textSize="15sp" />
     <EditText
     android:id="@+id/editar_url"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="@string/datos_url"
     android:textSize="15dp"/>
 
+    <TextView
+        android:id="@+id/text_telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/datos_telefono"
+        android:textSize="15sp" />
     <EditText
         android:id="@+id/editar_telefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/datos_telefono"
         android:textSize="15dp"/>
 
+    <TextView
+        android:id="@+id/text_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/datos_correo"
+        android:textSize="15sp" />
     <EditText
         android:id="@+id/editar_correo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/datos_correo"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/text_view_productos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/datos_productos"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/editar_productos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/text_view_servicios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/datos_servicios"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/editar_servicios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="15dp"/>
 
     <LinearLayout
@@ -42,8 +104,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="25dp"
-            android:text="@string/datos_clasificacion_seleccion"
-            android:textSize="19sp" />
+            android:paddingLeft="5dp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/datos_clasificacion"
+            android:textSize="17sp" />
 
         <RadioGroup
             android:id="@+id/radio_clasificacion"
@@ -77,22 +141,6 @@
         </RadioGroup>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_view_productos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="25dp"
-        android:text="@string/datos_productos"
-        android:textSize="19sp" />
-
-    <TextView
-        android:id="@+id/text_view_servicios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="25dp"
-        android:text="@string/datos_servicios"
-        android:textSize="19sp" />
 
     <Button
         android:id="@+id/button_add_update_empresa"

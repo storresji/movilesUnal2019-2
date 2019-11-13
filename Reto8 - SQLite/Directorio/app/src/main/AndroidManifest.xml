@@ -26,12 +26,12 @@
         </activity>
 
         <activity
-            android:name=".util.VerEmpresasActivity"
+            android:name=".util.VerEmpresasFiltro"
             android:label="@string/ver_empresas"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".util.VerEmpresasActivity" />
+                android:value=".util.VerEmpresasFiltro" />
         </activity>
 
     </application>

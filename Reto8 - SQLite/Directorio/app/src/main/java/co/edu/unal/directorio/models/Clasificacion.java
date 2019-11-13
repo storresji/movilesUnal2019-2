@@ -32,6 +32,10 @@ public enum Clasificacion {
         return Clasificacion.values()[codigoClas].descripcion;
     }
 
+    public String getDescripcionText(){
+        return descripcion;
+    }
+
     public int getId(){
         return this.codigoClas;
     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.here.android.tutorial">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name">
+        <activity android:label="@string/app_name" android:name=".BasicMapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="com.here.android.maps.appid" android:value="hvWFQoWx8yA2PVBhaQN0"/>
+        <meta-data android:name="com.here.android.maps.apptoken" android:value="PqcAGnnzWpn8Lwj0x70k0w"/>
+        <meta-data android:name="com.here.android.maps.license.key" android:value="TYJrBNzvvqjo5K/e0tyAcC0J1UhZ5fOpbHyssTYClZaD7xZyuhK5/Xw9Bk2rHX6B9iny1HyDq9kgKK/gvwySV3Yo9/kCR0kyj89EDInC51ucM6E2grRz7HwVEq3Hw1Gd1H/o10bvJB5x1V70b0QqUw1GNdPGeQp1L+rz4A8M9rDYmxObfyWUJ9PhyHd9+x5KfQklKlqDthZ3t9HOiJOMY4agP6NLnQYA0/+lNOYWeW9tXGKpMaWRm1ZR3v6YEJZkr/DAq586rrSIx4HyafGU11UxygkdkW++mZ+T3r7qboylEdW8MVi6qKOG++dzseKqEDpt+MstQ1Ye93/C5zcCSG1BRHraGKnPQE4YUKuEsedW3gaCKCPHuAdlr4KRzx4Ean7wXXq1Oz70xPMprj2D7zul6us4XEIYL/qcJfrMyEOaSG69xin1eVLSoB2dMIbJSoXBDLmslcb2KW1OjjtL6vmC4luqv5BiXFPEtxckN6D4ednDIKecmKQprPwk8GB+ev2Ikj6BGAfPBfu7uu2VPtzaLRR3Hx9Laepj30fK5W05M0JcPdRga5fo+egS9g1Dk4vP5o3OKxqy7A3SXOSQQ4nEWlsF9rZ1oEh2dKlQoSQk4eoJcU2aUf+5otK65sOTxRTVUi5/SHnP50TDtfjDWmUPAzL+OVxT7jNZkOk2vdc="/>
+
+        <!--
+            Embed the HERE Map Service. This will create and run the map service under the
+            application's process making sure that the map data between this application
+            and others' using the HERE SDK are not shared. See BasicMapActivity.java on
+            details how to set the location of your map data cache.
+            For more information, see the HERE SDK Developer's Guide
+        -->
+        <service android:exported="false" android:label="BasicMapSolutionMapService" android:name="com.here.android.mpa.service.MapService">
+            <intent-filter>
+                <action android:name="com.here.android.tutorial.MapService">
+                </action>
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Settings" android:label="Settings"></activity>
+
+    </application>
+
+</manifest>

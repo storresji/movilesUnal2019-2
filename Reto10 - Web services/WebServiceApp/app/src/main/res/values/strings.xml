@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">WebServiceApp</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="localidades_arrays">
+        <item>Antonio Nariño</item>
+        <item>Barrios Unidos</item>
+        <item>Bosa</item>
+        <item>Candelaria</item>
+        <item>Chapinero</item>
+        <item>Engativa</item>
+        <item>Fontibon</item>
+        <item>Kennedy</item>
+        <item>Puente Aranda</item>
+        <item>Martires</item>
+        <item>Santafe</item>
+        <item>San Cristobal</item>
+        <item>Suba</item>
+        <item>Teusaquillo</item>
+        <item>Tunjuelito</item>
+        <item>Usaquen</item>
+        <item>Usme</item>
+
+    </string-array>
+
+</resources>
